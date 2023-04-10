@@ -40,10 +40,10 @@
                                         <td><?= $item['TypeID'];?></td>
                                         <td>
                                             <a href="edit-item.php?id=<?= $item['ItemID'];?>" class="btn btn-primary">Edit</a>
-                                            <from action="code.php" method="POST">
+                                            <form action="code.php" method="POST">
                                                 <input type='hidden' name="ItemID" value="<?= $item['ItemID'];?>" >
-                                            <button type="submit" class="btn btn-danger" name="delete_item_btn">Delete</button>
-                                            </from>
+                                                <button type="submit" class="btn btn-danger" name="delete_item_btn">Delete</button>
+                                            </form>
                                         </td>
 
 

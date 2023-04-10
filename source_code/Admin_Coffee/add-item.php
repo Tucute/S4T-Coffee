@@ -46,6 +46,7 @@
                                     <textarea rows="3" type="text" name="TypeID" placeholder="Enter TypeID" class="form-control" id="TypeID"></textarea>
                                 </div>
                             </div>
+                            
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary" name="add_item_btn">Save</button>
                             </div>

@@ -75,9 +75,8 @@
             }
             else
             {
-                echo "Id missing from url";
+                echo "Successful";
             }
-
                 ?>
         </div>
     </div>

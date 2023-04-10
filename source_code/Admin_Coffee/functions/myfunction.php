@@ -15,10 +15,6 @@ function getByID($id) {
     return $result;
 }
 
-
-
-
-
 function redirect($url, $message)
 {
     $_SESSION['message'] = $message;

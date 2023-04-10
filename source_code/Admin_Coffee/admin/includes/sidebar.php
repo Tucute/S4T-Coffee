@@ -17,7 +17,7 @@
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">dashboard</i>
                     </div>
-                    <span class="nav-link-text ms-1">First page</span>
+                    <span class="nav-link-text ms-1">Trang Chủ</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -36,22 +36,14 @@
                     <span class="nav-link-text ms-1">Thêm Sản Phẩm</span>
                 </a>
             </li>
-             <!-- <li class="nav-item">
-                <a class="nav-link text-white " href="edit-item.php">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Cập Nhập Sản Phẩm</span>
-                </a>
-            </li> -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link text-white " href="../pages/tables.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
                     <span class="nav-link-text ms-1">Second Page</span>
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">

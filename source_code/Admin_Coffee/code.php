@@ -1,11 +1,11 @@
 <?php
 session_start();
+
 include('./admin/config/dbcon.php');
 include('./functions/myfunction.php'); 
 
 if(isset($_POST['add_item_btn']))
 {
-    $ItemID = $_POST['ItemID'];
     $Name = $_POST['Name'];
     $Price = $_POST['Price'];
     $Describes = $_POST['Describes'];
@@ -16,8 +16,10 @@ if(isset($_POST['add_item_btn']))
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
 
-    $cate_query = "INSERT INTO item (ItemID,Name,Price,Describes,Image,TypeID
-    VALUES ('" . $ItemID . "','" . $Name . "','" . $Price . "','" . $Describes . "','" . $image . "','" . $TypeID . "')";
+    $ItemID = uniqid(); // Generate a unique ID for the new item
+
+    $cate_query = "INSERT INTO item (ItemID,Name,Price,Describes,Image,TypeID)
+    VALUES ('$ItemID', '$Name', '$Price' , '$Describes' , '$image' , '$TypeID')";
 
     $cate_query_run = mysqli_query($conn, $cate_query);
     if ($cate_query_run)
@@ -53,7 +55,7 @@ else if (isset($_POST['update_item_btn']))
         $update_filename = $old_image;
     }
      $path = "./admin/image";
-    $update_query = "UPDATE item SET ItemID='$ItemID', Name='$Name',Price='$Price',Describes='$Describes', Image='$update_filename' ,TypeID='$TypeID'";
+    $update_query = "UPDATE item SET Name='$Name',Price='$Price',Describes='$Describes', Image='$update_filename' ,TypeID='$TypeID' WHERE ItemID='$ItemID'";
     $update_query_run = mysqli_query($conn, $update_query);
     if ($update_query_run){
         if ($_FILES['image']['name'] !=""){
@@ -70,26 +72,20 @@ else if (isset($_POST['update_item_btn']))
 }
 else if (isset($_POST['delete_item_btn']))
 {
-    $ItemID = mysqli_real_escape_string($conn, $_POST['ItemID']);
+    $ItemID = $_POST['ItemID'];
 
-    $ItemID_query = "SELECT * FROM item WHERE id=$$ItemID";
+    $ItemID_query = "SELECT * FROM item WHERE ItemID='$ItemID'";
     $ItemID_query_run = mysqli_query($conn, $ItemID_query);
     $ItemID_data = mysqli_fetch_array($ItemID_query_run);
-    $image = $ItemID_data['image'];
+    $old_image = $ItemID_data['image'];
 
-    $delete_query = "DELETE FROM item WHERE id='$ItemID'";
+    $delete_query = "DELETE FROM item WHERE ItemID='$ItemID'";
     $delete_query_run = mysqli_query($conn, $delete_query);
 
     if ($delete_query_run){
-        if(file_exists(" ./admin/image/".$old_image)){
-                unlink(" ./admin/image/".$old_image);
-            }
-        redirect('item.php', "Item deleted Successfully");
-        
-
-    } 
-    else 
-    {
+        if(file_exists("./admin/image/".$old_image)){
+            unlink("./admin/image/".$old_image);
+        }
         redirect('item.php', "Something Went Wrong");
     }
 }
