@@ -1,0 +1,46 @@
+
+.logo{
+  position: relative;
+
+}
+.container header{
+  width: 1110px;
+}
+header {
+  background-color: wheat;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+nav{
+  width: 1300px;
+}
+header nav .row .searchbox{
+ position: relative;
+ left: 40px;
+}
+ul {
+  display: flex;
+  list-style: none;
+  
+}
+.row li a {
+  display: block;
+  color: brown;
+  text-decoration: none;
+  font-size: medium;
+  position: relative;
+  right: 10px;
+ 
+}
+li a:hover{
+  color: #FFF;
+  background-color: brown;
+  -webkit-box-shadow: 0px 4px 5px rgba(50, 50, 50, 0.93);
+  -moz-box-shadow:    0px 4px 5px rgba(50, 50, 50, 0.93);
+  box-shadow:         0px 4px 5px rgba(50, 50, 50, 0.93);
+}
+header nav .row ul li{
+  padding: 20px;
+}
+
