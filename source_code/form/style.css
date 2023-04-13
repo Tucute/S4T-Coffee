@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
@@ -18,6 +17,10 @@ body {
 
 h1 {
 	font-weight: bold;
+	margin: 0;
+}
+h3 {
+	font-weight: 700;
 	margin: 0;
 }
 
@@ -69,6 +72,9 @@ button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
+.sign-up {
+	margin-top: 20px;
+}
 
 form {
 	background-color: #FFFFFF;
@@ -84,8 +90,8 @@ form {
 input {
 	background-color: #eee;
 	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
+	padding: 7px 15px;
+	margin: 4px 0;
 	width: 100%;
 }
 

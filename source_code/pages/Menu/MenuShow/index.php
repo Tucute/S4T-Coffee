@@ -1,5 +1,5 @@
 <?php
-    require "connectDB.php";
+    require "/xampp/htdocs/Project_PHP/source_code/data/connectDB.php";
     session_start();
     require "function.php";
 ?>
@@ -63,7 +63,7 @@
                                 <div class="menu-item">
                                     <div class="menu-item-img">
                                         <a href="http://localhost/Project_PHP/source_code/pages/Menu/Detail/index.php?idProduct=<?php echo $_SESSION['item'][$i]['id'] ?>" title="Cà phê sữa đá">
-                                            <img src="../img_WebCoffee/<?php echo $_SESSION['item'][$i]['image'] ?>" alt="">
+                                            <img src="../../../img_WebCoffee/<?php echo $_SESSION['item'][$i]['image'] ?>" alt="">
                                         </a>
                                     </div>
                                     <div class="menu-item-info">

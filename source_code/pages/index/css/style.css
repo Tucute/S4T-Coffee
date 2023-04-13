@@ -1,0 +1,51 @@
+body {
+    font-family: 'SF Pro Text', sans-serif;
+    line-height: 1.42857143;
+    font-size: 14px;
+    color: #000;
+    background: #fff;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-weight: 400;
+}
+.banner-home {
+    margin-bottom: 30px;
+}
+.image-menu-home {
+    border-radius: 10px;
+}
+.menu-home .container .row div{
+    margin-bottom: 20px;
+}
+.cloudtea {
+    margin-bottom: 40px;
+}
+.iconloginANDcart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-login {
+    display: flex;
+    width: 130px;
+    padding: 3px 10px;
+    border: 1px solid #ff0000;
+    align-items: center;
+    border-radius: 50px;
+}
+.icon-login a {
+    text-decoration: none;
+}
+.icon-login span {
+    padding-left: 15px;
+    font-size: 12px;
+    font-weight: 700;
+}
+.icon-cart {
+    margin-left: 40px;
+}
+.searchbox {
+    width:650px; 
+    margin-bottom: 10px;
+}

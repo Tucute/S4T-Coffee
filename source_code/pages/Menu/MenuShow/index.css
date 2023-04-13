@@ -79,6 +79,7 @@ h3 {
 .menu-item-img a{
     border-radius: 10px;
     display: block;
+    height: 100%;
     width: 100%;
     padding-top: 100%;
     position: relative;
@@ -88,9 +89,11 @@ h3 {
     position: absolute;
     top: 0;
     left: 0;
+    bottom: 0;
 }
 .menu-item img{
     width: 100%;
+    
 }
 img {
     border: none;

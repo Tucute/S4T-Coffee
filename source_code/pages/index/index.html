@@ -1,328 +1,243 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <link rel="stylesheet" href="./global.css" />
-    <link rel="stylesheet" href="./index.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=font:wght@400&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Verdana:wght@400&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Circular Std:wght@300;400;500;700&display=swap"
-    />
-  </head>
-  <body>
-    <div class="mix-blend-2-parent">
-      <div class="mix-blend-2">
-        <div class="property-1default">
-          <div class="property-1default-child"></div>
-          <div class="hover-me">Hover Me</div>
-        </div>
-        <div class="property-1variant2">
-          <div class="property-1variant2-child"></div>
-          <div class="hover-me">Hover Me</div>
-        </div>
-      </div>
-      <div class="frame-child"></div>
-      <div class="chuyn-nh-parent">
-        <div class="chuyn-nh">Chuyện Nhà</div>
-        <div class="component-1">
-          <div class="property-1default1">
-            <div class="coffeeholic">Coffeeholic</div>
-            <img
-              class="property-1default-item"
-              alt=""
-              src="./public/rectangle-12@2x.png"
-            /><img
-              class="property-1default-inner"
-              alt=""
-              src="./public/rectangle-12@2x.png"
-            /><img
-              class="rectangle-icon"
-              alt=""
-              src="./public/rectangle-12@2x.png"
-            />
-            <div class="ngy-2332023">Ngày 23/3/2023</div>
-            <div class="signature-biu">
-              SIGNATURE - BIỂU TƯỢNG VĂN HOÁ CÀ PHÊ CỦA THE COFFEE HOUSE ĐÃ QUAY
-              TRỞ LẠI
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Coffee S4T</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+      <!-- link thư viện icon -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+        <nav>
+            <div class="row">
+                <div class="col-sm-2">
+                    <h1 class="logo">
+                        <img src="images/logo.png" alt="" width="130px" height="100px">
+                    </h1>
+                </div>
+                <div class="col-sm-7 pt-3">
+                    <div class="searchbox">
+                        <form action="index.php" method="post">
+                            <div class="input-group">
+                                <input type="text" class="form-control"  placeholder="Tìm kiếm sản phẩm" name="tukhoa">
+                                <span class="input-group-text">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                      </svg>
+                                </span>
+                              </div>
+                        </form>
+                    </div>
+                    <ul>
+                        <li><a href="http://localhost/Project_PHP/source_code/pages/index/"> Trang chủ</a></li>
+                        <li><a href="http://localhost/Project_PHP/source_code/pages/Menu/MenuShow/"> Menu</a></li>
+                        <li><a href="http://localhost/Project_PHP/source_code/pages/News/"> Tin Tức</a></li>
+                        <li><a href="#"> Về chúng tôi</a></li>
+                        <li><a href="#"> Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <div class="iconloginANDcart">
+                        <div class="icon-login">
+                            <a href="http://localhost/Project_PHP/source_code/form/login.php">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                                  </svg>
+                            </a>
+                            <span>Đăng nhập</span>
+                        </div>
+                        <div class="icon-cart">
+                            <a href="http://localhost/Project_PHP/source_code/pages/Menu/Cart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-cart4" viewBox="0 0 16 16">
+                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- <a href=""><ion-icon name="person-circle-outline" style="color: brown;width: 40px;height: 40px;"></ion-icon></a> -->
+                        <!-- <a href="#"><ion-icon name="cart-outline" style="color: brown;width: 40px;height: 40px;"></ion-icon ></a> -->
+                        
+                    </div>
+                        
+                </div>
             </div>
-            <div class="mi-y-cc">
-              Mới đây, các "tín đồ" cà phê đang bàn tán xôn xao về SIGNATURE -
-              Biểu tượng văn hóa cà phê của The Coffee House đã quay trở lại
-            </div>
-            <div class="ngy-23320231">Ngày 23/3/2023</div>
-            <div class="signature-biu1">
-              SIGNATURE - BIỂU TƯỢNG VĂN HOÁ CÀ PHÊ CỦA THE COFFEE HOUSE ĐÃ QUAY
-              TRỞ LẠI
-            </div>
-            <div class="mi-y-cc1">
-              Mới đây, các "tín đồ" cà phê đang bàn tán xôn xao về SIGNATURE -
-              Biểu tượng văn hóa cà phê của The Coffee House đã quay trở lại
-            </div>
-            <div class="ngy-23320232">Ngày 23/3/2023</div>
-            <div class="signature-biu2">
-              SIGNATURE - BIỂU TƯỢNG VĂN HOÁ CÀ PHÊ CỦA THE COFFEE HOUSE ĐÃ QUAY
-              TRỞ LẠI
-            </div>
-            <div class="mi-y-cc2">
-              Mới đây, các "tín đồ" cà phê đang bàn tán xôn xao về SIGNATURE -
-              Biểu tượng văn hóa cà phê của The Coffee House đã quay trở lại
-            </div>
-          </div>
-          <div class="property-1variant21">
-            <div class="coffeeholic">Teaholic</div>
-            <img
-              class="property-1default-item"
-              alt=""
-              src="./public/rectangle-12@2x.png"
-            /><img
-              class="property-1default-inner"
-              alt=""
-              src="./public/rectangle-12@2x.png"
-            /><img
-              class="rectangle-icon"
-              alt=""
-              src="./public/rectangle-12@2x.png"
-            />
-            <div class="ngy-23320233">Ngày 23/3/2023</div>
-            <div class="signature-biu3">
-              SIGNATURE - BIỂU TƯỢNG VĂN HOÁ CÀ PHÊ CỦA THE COFFEE HOUSE ĐÃ QUAY
-              TRỞ LẠI
-            </div>
-            <div class="mi-y-cc3">
-              Mới đây, các "tín đồ" cà phê đang bàn tán xôn xao về SIGNATURE -
-              Biểu tượng văn hóa cà phê của The Coffee House đã quay trở lại
-            </div>
-            <div class="ngy-23320234">Ngày 23/3/2023</div>
-            <div class="signature-biu4">
-              SIGNATURE - BIỂU TƯỢNG VĂN HOÁ CÀ PHÊ CỦA THE COFFEE HOUSE ĐÃ QUAY
-              TRỞ LẠI
-            </div>
-            <div class="mi-y-cc4">
-              Mới đây, các "tín đồ" cà phê đang bàn tán xôn xao về SIGNATURE -
-              Biểu tượng văn hóa cà phê của The Coffee House đã quay trở lại
-            </div>
-            <div class="ngy-23320235">Ngày 23/3/2023</div>
-            <div class="signature-biu5">
-              SIGNATURE - BIỂU TƯỢNG VĂN HOÁ CÀ PHÊ CỦA THE COFFEE HOUSE ĐÃ QUAY
-              TRỞ LẠI
-            </div>
-            <div class="mi-y-cc5">
-              Mới đây, các "tín đồ" cà phê đang bàn tán xôn xao về SIGNATURE -
-              Biểu tượng văn hóa cà phê của The Coffee House đã quay trở lại
-            </div>
-            <div class="line-div"></div>
-            <div class="property-1variant2-child2"></div>
-            <div class="property-1variant2-child3"></div>
-          </div>
-          <div class="property-1variant3">
-            <div class="coffeeholic">Blog</div>
-            <img
-              class="property-1default-item"
-              alt=""
-              src="./public/rectangle-12@2x.png"
-            /><img
-              class="property-1default-inner"
-              alt=""
-              src="./public/rectangle-12@2x.png"
-            /><img
-              class="rectangle-icon"
-              alt=""
-              src="./public/rectangle-12@2x.png"
-            />
-            <div class="ngy-23320236">Ngày 23/3/2023</div>
-            <div class="signature-biu6">
-              SIGNATURE - BIỂU TƯỢNG VĂN HOÁ CÀ PHÊ CỦA THE COFFEE HOUSE ĐÃ QUAY
-              TRỞ LẠI
-            </div>
-            <div class="mi-y-cc6">
-              Mới đây, các "tín đồ" cà phê đang bàn tán xôn xao về SIGNATURE -
-              Biểu tượng văn hóa cà phê của The Coffee House đã quay trở lại
-            </div>
-            <div class="ngy-23320237">Ngày 23/3/2023</div>
-            <div class="signature-biu7">
-              SIGNATURE - BIỂU TƯỢNG VĂN HOÁ CÀ PHÊ CỦA THE COFFEE HOUSE ĐÃ QUAY
-              TRỞ LẠI
-            </div>
-            <div class="mi-y-cc7">
-              Mới đây, các "tín đồ" cà phê đang bàn tán xôn xao về SIGNATURE -
-              Biểu tượng văn hóa cà phê của The Coffee House đã quay trở lại
-            </div>
-            <div class="ngy-23320238">Ngày 23/3/2023</div>
-            <div class="signature-biu8">
-              SIGNATURE - BIỂU TƯỢNG VĂN HOÁ CÀ PHÊ CỦA THE COFFEE HOUSE ĐÃ QUAY
-              TRỞ LẠI
-            </div>
-            <div class="mi-y-cc8">
-              Mới đây, các "tín đồ" cà phê đang bàn tán xôn xao về SIGNATURE -
-              Biểu tượng văn hóa cà phê của The Coffee House đã quay trở lại
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="gii-thiu-parent">
-        <div class="gii-thiu">Giới thiệu</div>
-        <div class="v-chng-ti">Về chúng tôi</div>
-        <div class="sn-phm">Sản phẩm</div>
-        <div class="khuyn-mi">Khuyến mãi</div>
-        <div class="chuyn-c-ph">Chuyện cà phê</div>
-        <div class="iu-khon">Điều khoản</div>
-        <div class="t-hng-0964984046">Đặt hàng: 0964984046</div>
-        <div class="lin-h">Liên hệ</div>
-        <div class="iu-khon-s">Điều khoản sử dụng</div>
-        <div class="chnh-sch-bo">Chính sách bảo mật</div>
-        <div class="b-l-hu-container">
-          <span class="b-l-hu-container1"
-            ><p class="b-l-hu">101B Lê Hữu Trác</p>
-            <p class="b-l-hu">Phường Phước Mỹ</p>
-            <p class="sn-tr-">Sơn Trà - Đà Nẵng</p></span
-          >
-        </div>
-        <img
-          class="phone-0a42df1c753c4fa0910108da-icon"
-          alt=""
-          src="./public/phone-0a42df1c753c4fa0910108daa73fe2ef-1@2x.png"
-        />
-        <div class="frame-item"></div>
-        <img
-          class="map-pin-2-line-575ccb91b6f94a3-icon"
-          alt=""
-          src="./public/mappin2line-575ccb91b6f94a308d1bd507d4ae72a7-1@2x.png"
-        /><img
-          class="z4172995596454-efd8024155f68e1-icon"
-          alt=""
-          src="./public/z4172995596454-efd8024155f68e10ebea21cfdbec9555-1@2x.png"
-        /><img
-          class="test-db37bb3840ac45f3a0a3cf7aa-icon"
-          alt=""
-          src="./public/test-db37bb3840ac45f3a0a3cf7aa8a57d9e-1.svg"
-        />
-        <div class="test-fd4e30831d14438f9d0f1fcf2"></div>
-        <img class="vector-icon" alt="" src="./public/vector.svg" />
-        <div class="cng-ty-c-container">
-          <span class="b-l-hu-container1"
-            ><p class="sn-tr-">
-              Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN
-            </p>
-            <p class="sn-tr-">
-              Mã số DN: 0312867172 do sở kế hoạch và đầu tư tp. Đà Nẵng cấp ngày
-              23/05/2022. Người đại diện: Cao Tuyen
-            </p>
-            <p class="sn-tr-">
-              Địa chỉ: 101B Lê Hữu Trác Sơn Tra Đà Nẵng Điện
-              thoại: 0964984046 Email: hi@coffees4t.vn
-            </p>
-            <p class="sn-tr-">
-              © 2022-2023 Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN mọi
-              quyền bảo lưu
-            </p></span
-          >
-        </div>
-      </div>
-      <div class="rectangle-parent">
-        <img class="frame-inner" alt="" src="./public/rectangle-10@2x.png" />
-        <div class="signature-by-the-container">
-          <span class="b-l-hu-container1"
-            ><p class="sn-tr-">SIGNATURE</p>
-            <p class="sn-tr-">by The Coffee House</p></span
-          >
-        </div>
-        <div class="mix-blend-21">
-          <div class="mix-blend-2-child"></div>
-          <div class="hover-me2">Tìm hiểu thêm</div>
-        </div>
-        <div class="nh-tin-rng">
-          Nhà tin rằng “cuộc hẹn cà phê” luôn có cho mình những tiêu chuẩn,
-          phiên bản khác nhau, chúng luôn biến hoá mỗi ngày. Và SIGNATURE by The
-          Coffee House là nơi bạn tìm thấy phiên bản đặc biệt của Cuộc hẹn tròn
-          đầy giữa những ngày hối hả.Hôm nay bạn có hẹn chưa? Mình cà phê nhé!
-        </div>
-      </div>
-      <div class="dm-20230323203647-001-1-wrapper">
-        <img
-          class="dm-20230323203647-001-1-icon"
-          alt=""
-          src="./public/dm-20230323203647-001-1@2x.png"
-        />
-      </div>
-      <img class="frame-child1" alt="" src="./public/rectangle-1@2x.png" />
-      <div class="rectangle-group">
-        <img
-          class="frame-child2"
-          alt=""
-          src="./public/rectangle-2@2x.png"
-        /><img class="frame-child3" alt="" src="./public/rectangle-3@2x.png" />
-        <div class="rectangle-div"></div>
-        <img
-          class="frame-child4"
-          alt=""
-          src="./public/rectangle-6@2x.png"
-        /><img
-          class="frame-child5"
-          alt=""
-          src="./public/rectangle-7@2x.png"
-        /><img
-          class="frame-child6"
-          alt=""
-          src="./public/rectangle-8@2x.png"
-        /><img
-          class="frame-child7"
-          alt=""
-          src="./public/rectangle-9@2x.png"
-        /><img class="frame-child8" alt="" src="./public/rectangle-4@2x.png" />
-        <div class="cloudfee-hnh-nhn">CloudFee Hạnh Nhân Nướng</div>
-        <div class="vn">75.000 VNĐ</div>
-        <div class="the-coffee-house">The Coffee House Sữa Đá</div>
-        <div class="vn1">60.000 VNĐ</div>
-        <div class="hi-tea">Hi - Tea Vải</div>
-        <div class="vn2">60.000 VNĐ</div>
-        <div class="c-ph-sa">Cà Phê Sữa Đá</div>
-        <div class="vn3">75.000 VNĐ</div>
-        <div class="hng-tr-sa">Hồng Trà Sữa Nóng</div>
-        <div class="vn4">50.000 VNĐ</div>
-        <div class="mochi-kem-chocolate">Mochi Kem Chocolate</div>
-        <div class="vn5">20.000 VNĐ</div>
-      </div>
-      <div class="trang-ch-parent">
-        <div class="trang-ch">
-          <div class="property-1default2">
-            <div class="trang-ch1">Trang chủ</div>
-          </div>
-        </div>
-        <div class="menu">
-          <div class="property-1default2"><div class="menu1">Menu</div></div>
-        </div>
-        <div class="tin-tc">
-          <div class="property-1default2"><div class="menu1">Tin tức</div></div>
-        </div>
-        <div class="v-chng-ti1">
-          <div class="property-1default2">
-            <div class="v-chng-ti2">Về chúng tôi</div>
-          </div>
-        </div>
-        <div class="v-chng-ti3">
-          <div class="property-1default2">
-            <div class="v-chng-ti2">Liên hệ</div>
-          </div>
-        </div>
-        <img class="frame-child9" alt="" src="./public/rectangle-15@2x.png" />
-      </div>
+           
+        </nav>
     </div>
-  </body>
+  </header>
+  <main>
+    <section class="banner-home">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="images/slider1.webp" class="d-block w-100" alt="">
+              </div>
+              <div class="carousel-item">
+                <img src="images/slider2.webp" class="d-block w-100" alt="">
+              </div>
+              <div class="carousel-item">
+                <img src="images/slider3.webp" class="d-block w-100" alt="">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </section>
+    <section class="menu-home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <a href="#">
+                        <img class="image-menu-home" src="images/image-menu-home.webp" alt="" width="100%" height="100%">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <div class="card" style="width: 16rem;">
+                        <img src="images/product.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Cà phê phindi hạnh nhân</h5>
+                          <p class="card-text">20.000 đ</p>
+                          
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <div class="card" style="width: 16rem;">
+                        <img src="images/product.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Cà phê phindi hạnh nhân</h5>
+                          <p class="card-text">20.000 đ</p>
+                          
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <div class="card" style="width: 16rem;">
+                        <img src="images/product.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Cà phê phindi hạnh nhân</h5>
+                          <p class="card-text">20.000 đ</p>
+                          
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <div class="card" style="width: 16rem;">
+                        <img src="images/product.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Cà phê phindi hạnh nhân</h5>
+                          <p class="card-text">20.000 đ</p>
+                          
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <div class="card" style="width: 16rem;">
+                        <img src="images/product.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Cà phê phindi hạnh nhân</h5>
+                          <p class="card-text">20.000 đ</p>
+                          
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <div class="card" style="width: 16rem;">
+                        <img src="images/product.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Cà phê phindi hạnh nhân</h5>
+                          <p class="card-text">20.000 đ</p>
+                          
+                        </div>
+                      </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="cloudtea">
+        <img src="images/cloudtea.png" alt="" width="100%" height="100%">
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h5>GIỚI THIỆU</h5>
+                <i>
+                    <a href="">Về chúng tôi</a> <br>
+                    <a href="">Sản phẩm</a><br>
+                    <a href="">Khuyến mãi</a><br>
+                    <a href="">Chuyện Cà phê</a><br>
+                </i>
+                
+            </div>
+            <div class="col-sm-3">
+                <h5>ĐIỀU KHOẢN</h5>
+                <i>
+                    <a href="">Điều khoản sử dụng</a><br>
+                    <a href="">Chính sách bảo mật</a>
+                </i>
+                
+            </div>
+            <div class="col-sm-3">
+                <h5>LIÊN HỆ</h5>
+                <i>
+                    <span><ion-icon name="call-outline"></ion-icon></span>
+                    <span>Đặt hàng:  0964984046</span> <br>
+                    <span><ion-icon name="location-outline"></ion-icon> Địa chỉ:</span><br>
+                    <span>101B Lê Hữu Trác
+                        Phường Phước Mỹ 
+                        Sơn Trà - Đà Nẵng</span>
+                </i>
+               
+            </div>
+            <div class="col-sm-3">
+                    <img class="logo" src="public/img/logo.jpg" alt="" width="150px" height="150px"><br>
+                    <span>
+                            <a style="text-decoration: none;" href="">
+                                <ion-icon class="icon" name="logo-facebook" style="color: rgb(27, 54, 152);"></ion-icon>
+                                <ion-icon class="icon" name="logo-twitter" style="color: rgb(0, 81, 255);"></ion-icon>
+                                <ion-icon class="icon" name="logo-youtube" style="color: red;"></ion-icon>
+                                <ion-icon class="icon" name="logo-instagram" style="color: orangered;"></ion-icon>
+                            </a>
+                    </span>
+            </div>
+        </div>
+        <div class="line"></div>
+        <p style="color: white;">Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN <br>
+            Mã số DN: 0312867172 do sở kế hoạch và đầu tư tp. Đà Nẵng cấp ngày 23/05/2022. Người đại diện: Cao Tuyen <br>
+            Địa chỉ: 86-88 Cao Thắng, phường 04, quận 3, tp Hồ Chí Minh Điện thoại: 0964984046 Email: hi@coffees4t.vn <br>
+            © 2022-2023 Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN mọi quyền bảo lưu</p>
+    </div>
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
 </html>

@@ -5,10 +5,9 @@
     } 
 ?>
 <?php
-    require "connectDB.php";
+    require "/xampp/htdocs/Project_PHP/source_code/data/connectDB.php";
 ?>
 <?php
-    $_SESSION['idUser']=0;
     if(isset($_GET['id'])) {
         $id=$_GET['id'];
         if ($id == 0){
