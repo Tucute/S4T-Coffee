@@ -1,0 +1,54 @@
+
+.logo{
+  position: relative;
+
+}
+.container header{
+  width: 1110px;
+}
+header {
+  background: rgba(255, 255, 255, 0.8);
+  position:static;
+  top: 0;
+  width: 100%;
+ 
+}
+.container nav .row {
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 0;
+}
+nav{
+  width: 1300px;
+}
+header nav .row .searchbox{
+ position: relative;
+ left: 40px;
+}
+ul {
+  display: flex;
+  list-style: none;
+  
+}
+.row ul li {
+    margin-left: 20px;
+}
+.row li a {
+  display: block;
+  color: brown;
+  letter-spacing: 1px;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: medium;
+  position: relative;
+  right: 10px;
+ 
+}
+li a:hover{
+  font-weight:900;
+  color: #ffa500;
+}
+header nav .row ul li{
+  padding: 20px;
+}

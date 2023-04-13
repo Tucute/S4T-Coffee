@@ -1,5 +1,5 @@
 <?php
-    require "connectDB.php";
+    require "/xampp/htdocs/Project_PHP/source_code/data/connectDB.php";
     session_start();
 ?>
 <!doctype html>
@@ -25,19 +25,32 @@
     <br>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
-                <h1>Create Account</h1>
+            <form method="post">
+                <h3>Create Account</h3>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
+                <input type="text" name="name" placeholder="Name" />
+                <input type="text" name="phone" placeholder="Phone" />
+                <input type="text" name="address" placeholder="Address" />
+                <input type="text" name="username" placeholder="Username" />
+                <input type="password" name="pass" placeholder="Password" />
+                <button type="submit" class="sign-up" name="btn-sign-up">Sign Up</button>
             </form>
+            <?php
+                if (isset($_POST['btn-sign-up'])) {
+                    $name = $_POST['name'];
+                    $phone = $_POST['phone'];
+                    $address = $_POST['address'];
+                    $username = $_POST['username'];
+                    $pass = $_POST['pass'];
+                    $sql = mysqli_query($conn, "INSERT INTO User (Name, Phone, Address, Username, Password) VALUES ('$name', '$phone', '$address', '$username', '$pass')");
+                    echo"<script> alert('Đăng kí thành công. Bạn đã trở thành thành viên của S4T') </script>";
+                }
+            ?>
         </div>
         <div class="form-container sign-in-container">
             <form method="post">
@@ -78,13 +91,21 @@
                 $result = mysqli_fetch_assoc($sql);
                 if ($result) {
                     $_SESSION['idUser'] = $result['UserID'];
-                    header("Location: http://localhost/Project_PHP/source_code/pages/Menu/Detail/index.php?idProduct=".$_SESSION['idProduct']);
+                    if(isset($_SESSION['idProduct'])) {
+                        echo "<script> alert('Dăng nhập thành công !') </script>";
+                        header( "Location: ../pages/Menu/Detail/index.php?idProduct=".$_SESSION['idProduct']);
+                    }
+                    else{
+                        echo "<script> alert('Dăng nhập thành công !') </script>";
+                        header("Location: http://localhost/Project_PHP/source_code/pages/index/");
+                    }
                 }
                 else {
                     echo "<script> alert('Sai tên tài khoản hoặc mật khẩu! Vui lòng đăng nhập lại') </script>";
                 }
             }
         ?>
+
     <script src="script.js"></script>
 <!--     
     <footer>
