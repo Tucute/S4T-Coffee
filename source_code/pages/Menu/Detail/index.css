@@ -57,7 +57,7 @@ body {
     font-family: "SF Pro Display", sans-serif;
     line-height: 24px;
 }
-hr {
+.line {
     margin: 50px 0;
 }
 .section2 .title {

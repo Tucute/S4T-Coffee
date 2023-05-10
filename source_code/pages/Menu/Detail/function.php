@@ -21,7 +21,7 @@
         
     }
     else {
-        header("Location: http://localhost/Project_PHP/source_code/form/login.php");
+        header("Location: ../../../form/login.php");
     }
     
 ?>

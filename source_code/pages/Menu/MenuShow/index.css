@@ -24,7 +24,7 @@ a {
     flex-direction: column;
     justify-content: center;
     margin-right: 20px;
-    padding-left: 0%;
+    padding-left: 20px;
 }
 .Menu {
     width: 230px;
@@ -32,20 +32,19 @@ a {
     margin: 0;
     padding: 0;
 }
-ul li {
+.left-section li {
     list-style-type: none;
     line-height: 30px;
 }
-ul li a:active {
+.left-section li a:active {
     font-size: 16px;
     color: #EA8025;
     font-weight: 600;
     position: relative;
 }
-ul li a{
+.left-section li a{
     text-decoration: none;
     font-family: 'SF Pro Text', sans-serif;
-    padding-left: 26px;
     font-size: 14px;
     color: rgba(0, 0, 0, 0.6);
     display: inline-block;

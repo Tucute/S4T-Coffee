@@ -52,3 +52,31 @@ li a:hover{
 header nav .row ul li{
   padding: 20px;
 }
+.iconloginANDcart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-login {
+  display: flex;
+  width: 130px;
+  padding: 3px 10px;
+  border: 1px solid #ff0000;
+  align-items: center;
+  border-radius: 50px;
+}
+.icon-login a {
+  text-decoration: none;
+}
+.icon-login span {
+  padding-left: 15px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.icon-cart {
+  margin-left: 40px;
+}
+.searchbox {
+  width:650px; 
+  margin-bottom: 10px;
+}

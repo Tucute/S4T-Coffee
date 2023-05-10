@@ -87,21 +87,26 @@
             if(isset($_POST['btn-sign-in'])) {
                 $name=$_POST['name'];
                 $pass=$_POST['pass'];
-                $sql=mysqli_query($conn, "SELECT*FROM user WHERE Username = '$name' AND Password = '$pass'");
-                $result = mysqli_fetch_assoc($sql);
-                if ($result) {
-                    $_SESSION['idUser'] = $result['UserID'];
-                    if(isset($_SESSION['idProduct'])) {
-                        echo "<script> alert('Dăng nhập thành công !') </script>";
-                        header( "Location: ../pages/Menu/Detail/index.php?idProduct=".$_SESSION['idProduct']);
-                    }
-                    else{
-                        echo "<script> alert('Dăng nhập thành công !') </script>";
-                        header("Location: http://localhost/Project_PHP/source_code/pages/index/");
-                    }
+                if ($name == "admin" && $pass="123456") {
+                    header("Location: http://localhost/Project_PHP/source_code/Admin_Coffee/index.php");
                 }
                 else {
-                    echo "<script> alert('Sai tên tài khoản hoặc mật khẩu! Vui lòng đăng nhập lại') </script>";
+                    $sql=mysqli_query($conn, "SELECT*FROM user WHERE Username = '$name' AND Password = '$pass'");
+                    $result = mysqli_fetch_assoc($sql);
+                    if ($result) {
+                        $_SESSION['idUser'] = $result['UserID'];
+                        if(isset($_SESSION['idProduct'])) {
+                            echo "<script> alert('Dăng nhập thành công !') </script>";
+                            header( "Location: ../pages/Menu/Detail/index.php?idProduct=".$_SESSION['idProduct']);
+                        }
+                        else{
+                            echo "<script> alert('Dăng nhập thành công !') </script>";
+                            header("Location: http://localhost/Project_PHP/source_code/pages/index/");
+                        }
+                    }
+                    else {
+                        echo "<script> alert('Sai tên tài khoản hoặc mật khẩu! Vui lòng đăng nhập lại') </script>";
+                    }
                 }
             }
         ?>

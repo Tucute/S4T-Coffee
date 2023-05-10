@@ -8,6 +8,7 @@
     require "/xampp/htdocs/Project_PHP/source_code/data/connectDB.php";
 ?>
 <?php
+
     if(isset($_GET['id'])) {
         $id=$_GET['id'];
         if ($id == 0){

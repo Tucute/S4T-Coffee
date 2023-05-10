@@ -1,0 +1,121 @@
+/* header */
+.logo{
+    position: relative;
+  }
+.logo img {
+    width: 70%;
+    height: 70%;
+}
+  .container header{
+    width: 1110px;
+  }
+  header {
+    background: rgba(255, 255, 255, 0.8);
+    position:static;
+    top: 0;
+    width: 100%;
+   
+  }
+  .container nav .row {
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 0;
+  }
+  nav{
+    width: 1300px;
+  }
+  header nav .row .searchbox{
+   position: relative;
+   left: 40px;
+  }
+  .categories {
+    display: flex;
+    list-style: none;
+    
+  }
+  .row .categories li {
+      margin-left: 20px;
+  }
+  .row .categories li a {
+    display: block;
+    color: brown;
+    letter-spacing: 1px;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: medium;
+    position: relative;
+    right: 10px;
+   
+  }
+  .categories li a:hover{
+    font-weight:900;
+    color: #ffa500;
+  }
+  header nav .row .categories li{
+    padding: 20px;
+  }
+  .iconloginANDcart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .icon-login a {
+    display: flex;
+    width: 130px;
+    padding: 3px 10px;
+    border: 1px solid #ff0000;
+    align-items: center;
+    border-radius: 50px;
+  }
+  .icon-login a{
+    text-decoration: none;
+  }
+  .icon-login a span {
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000;
+  }
+  .icon-cart {
+    margin-left: 40px;
+  }
+  .searchbox {
+    width:650px; 
+    margin-bottom: 10px;
+  }
+
+/* footer */
+footer {
+    position: relative;
+    top: 30px;
+    background-color: black;
+    
+}
+footer .row a{
+    color: white;
+    text-decoration: none;
+}
+footer .row h5{
+    color: white;
+}
+footer .row span{
+    color: white;
+}
+.container footer{
+   padding: 20px;
+}
+.line{
+    border-bottom: 1px solid white;
+}
+footer .row span .icon{
+    width: 30px;
+    height: 30px;
+}
+footer .row .logo{
+    border-radius: 20px;
+}
+.logo {
+    text-align: center;
+    top: -15%;
+}
