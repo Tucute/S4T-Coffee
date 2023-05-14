@@ -197,6 +197,7 @@ a {
     vertical-align: top;
     width: 100px;
     padding-left: 9px;
+    padding-top: 20px;
 }
 .cart-item-middle .current-price {
     font-size: 18px;
@@ -218,6 +219,7 @@ a {
     width: 139px;
     text-align: right;
     padding-right: 20px;
+    padding-top: 21px;
 }
 .item-quantity-prefix {
     font-size: 14px;

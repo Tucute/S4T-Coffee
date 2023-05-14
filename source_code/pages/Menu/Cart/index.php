@@ -14,9 +14,9 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
     <style>
     <?php
+        include ("index.css");
         include ("/xampp/htdocs/Project_PHP/source_code/style/style.css");
     ?>
   </style>
@@ -45,7 +45,7 @@
                                   </div>
                             </form>
                         </div>
-                        <ul>
+                        <ul class="categories">
                             <li><a href="../../index/index.php"> Trang chủ</a></li>
                             <li><a href="../MenuShow/index.php"> Menu</a></li>
                             <li><a href="../../News/index.php"> Tin Tức</a></li>
@@ -65,7 +65,7 @@
                                 
                             </div>
                             <div class="icon-cart">
-                                <a href="../Cart">
+                                <a href="index.php">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-cart4" viewBox="0 0 16 16">
                                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                                     </svg>
@@ -133,10 +133,48 @@
                                     <span class="item-quantity-prefix"> Số lượng:</span>
                                     <?php 
                                         $idItem = $row_cart['ItemID'];
-                                        $sql_quantity = mysqli_query($conn, "SELECT Quantity FROM cart where ItemID = $idItem and UserID = $idUser");
+                                        $sql_cart= mysqli_query($conn, "SELECT * FROM cart where ItemID = $idItem and UserID = $idUser");
+                                        $cart = mysqli_fetch_assoc($sql_cart);
+                                    ?>
+                                    <?php
+                                        if (isset($_POST['btn-minus'. $cart['ItemID']])) {
+                                            if ($cart['Quantity'] >1){
+                                                $itemID = $cart['ItemID'];
+                                                $amountmn = $cart['Quantity'] -1;                 
+                                                mysqli_query($conn, "UPDATE cart SET Quantity = $amountmn where ItemID = $itemID and UserID = $idUser");
+                                                } 
+                                            }                                           
+                                            
+                                        if (isset($_POST['btn-plus'. $cart['ItemID']])) {                                
+                                            $itemID = $cart['ItemID'];
+                                            $amountpl = $cart['Quantity'] + 1 ;
+                                                mysqli_query($conn, "UPDATE cart SET Quantity = $amountpl where ItemID = $itemID and UserID = $idUser");
+                                            } 
+                                            
+                                    ?>
+                                    <?php 
+                                        
+                                        $sql_quantity = mysqli_query($conn, "SELECT * FROM cart where ItemID = $idItem and UserID = $idUser");
                                         $quantity = mysqli_fetch_assoc($sql_quantity);
                                     ?>
-                                    <span class="item-quantity-values"><?php echo $quantity['Quantity'] ?></span>
+                                    <form method="post">
+                                        <div class="selectQuantity">                              
+                                            <button type="submit" name="btn-minus<?php echo $quantity['ItemID']?>">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                                                </svg>
+                                            </button> 
+                                            <input type="text" name="amount" id="amount" defaulValue="1" value="<?php echo $quantity['Quantity'] ?>" >
+                                            <button type="submit" name="btn-plus<?php echo $quantity['ItemID']?>">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                                </svg>
+                                            </button>  
+                                        </div>
+                                    </form>
+
+                                    
+        
                                     <?php $total_price += $row_cart['Price'] * $quantity['Quantity'] ?>
                                 </div>
                             </div>
@@ -182,7 +220,7 @@
                     </div>
                     <div class="order">
                         <button type="button" class="btn btn-warning">
-                            <a href="http://localhost/Project_PHP/source_code/pages/Menu/Payment/">XÁC NHẬN GIỎ HÀNG</a>  
+                            <a href="./function.php">XÁC NHẬN GIỎ HÀNG</a>  
                         </button>
                     </div>
                 </div>

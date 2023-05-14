@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -62,7 +65,7 @@
                                 
                             </div>
                             <div class="icon-cart">
-                                <a href="../Cart">
+                                <a href="../Cart/index.php">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-cart4" viewBox="0 0 16 16">
                                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                                     </svg>
@@ -87,18 +90,18 @@
                         </div>
                         <div class="detail-info">
                             <div class="name-phone">
-                                <span class="name"> A Ân Tứ</span>
-                                <span>0366702225</span>
+                                <span class="name"><?php echo $_SESSION['Infor_Customer']['name'] ?></span>
+                                <span><?php echo $_SESSION['Infor_Customer']['phone'] ?></span>
                             </div>
                         </div>
                         <div class="address">
                             <span class="address-tag">NHÀ RIÊNG</span>
-                            <span>101B, Lê Hữu Trác, Phước Mỹ, Sơn Trà, Đà Nẵng</span>
+                            <span><?php echo $_SESSION['Infor_Customer']['address'] ?></span>
                         </div>
                         <div class="note">
                             <p>Vui lòng xác nhận thông tin trên là đúng để hoàn tất thủ tục đặt hàng.</p>
                         </div>
-                    </div>
+                    </div>                
                     <div class="package">
                         <div class="package-title">
                             <p class="package-title-left">Gói hàng 1 của 1</p>
@@ -123,38 +126,47 @@
                                 <p>Nhận vào: 20-19 tháng 4</p>
                             </div>
                         </div>
+                        <?php
+                            $arr_Product = $_SESSION['Product'];
+                            $totalPrice = 0 ;
+                            for ($i=0; $i < count($arr_Product); $i++) { 
+                        ?> 
                         <div class="cart-item">
                             <div class="cart-item-left">
                                 <div class="image">
                                     <a href="#">
-                                        <img src="../../../img_WebCoffee/ca-phe-hanh-nhan.webp" alt="" width="80px" height="80px">
+                                        <img src="../../../img_WebCoffee/<?php echo $arr_Product[$i]['img']; ?>" alt="" width="80px" height="80px">
                                     </a>
                                 </div>
                                 <div class="content">
                                     <a href="#" class="title">
-                                        Trà sữa trân châu đường đen
+                                        <?php echo $arr_Product[$i]['name']; ?>
                                     </a>
                                     <a href="#" class="sku">
-                                        Được làm từ lúa mạch nguyên chất giúp tăng cân hiệu quả và nhanh chóng trong vòng thời gian ngắn nhất. Đảm bảo an toàn cho sức khỏe của bạn.
+                                    <?php echo $arr_Product[$i]['des']; ?>
                                     </a>
                                 </div>
                             </div>
                             <div class="cart-item-middle">
-                                <p class="current-price">49.000 đ</p>
-                                <p class="origin-price">80.000 đ</p>
+                                <p class="current-price"><?php echo $arr_Product[$i]['price']; ?> đ</p>
+                                <!-- <p class="origin-price">50.000 đ</p> -->
                             </div>
                             <div class="cart-item-right">
                                 <span class="item-quantity-prefix"> Số lượng:</span>
-                                <span class="item-quantity-values">1</span>
+                                <span class="item-quantity-values"><?php echo $arr_Product[$i]['quantity']; ?></span>
                             </div>
                         </div>
-                    </div>
+                        <?php
+                        $totalPrice += $arr_Product[$i]['price'] * $arr_Product[$i]['quantity'];
+                        } 
+                    ?>
+                    </div>                
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="right-content">
-                    <h6 class="title-payment">ĐẶT HÀNG</h6>
-                    <p>Chọn Phương thưc thanh toán</p>
+                    <h6 class="title-payment">ĐƠN HÀNG</h6>
+                    <p>Chọn phương thưc thanh toán</p>
                     <div class="select-option-payment">
                         <div class="cart-top">
                             <span>
@@ -198,7 +210,7 @@
                     <p>Thông tin đơn hàng </p>
                     <div class="price-origin">
                         <p class="text">Tạm tính (1 sản phẩm)</p>
-                        <p class="price">190.000 đ</p>
+                        <p class="price"><?php echo $totalPrice ?> đ</p>
                     </div>
                     <div class="price-origin">
                         <p class="text">Phí vận chuyển</p>
@@ -207,7 +219,7 @@
                     <hr>
                     <div class="price-origin">
                         <p class="text">Tổng cộng:</p>
-                        <p class="price">220.000 đ</p>
+                        <p class="price"><?php echo $totalPrice + 30000 ?> đ</p>
                     </div>
                     <div class="order">
                         <button type="button" class="btn btn-warning">ĐẶT HÀNG</button>
