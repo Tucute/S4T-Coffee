@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+require "/xampp/htdocs/Project_PHP/source_code/data/connectDB.php";
+?>
 <!doctype html>
 <html lang="en">
 
@@ -42,6 +45,15 @@
             $phone = checkPhone($_POST['phone']);
             $address = checkAddress($_POST['address']);
             $arr = array('name'=> $name, 'phone' => $phone, 'address' => $address );
+
+            $sql="INSERT INTO customer (Name,Phone,Address) values ('$name','$phone','$address')";
+            $query=mysqli_query($conn, $sql);
+
+            $sql="SELECT COUNT(*)as count FROM customer";
+            $query=mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($query);
+            $_SESSION['CustomerID']=$row['count'];
+
             $_SESSION['Infor_Customer'] = $arr;
             header('Location: index.php');
         } 
