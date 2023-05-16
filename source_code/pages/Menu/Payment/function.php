@@ -27,6 +27,16 @@
         header('Location: index.php ');
     }
     else {
+        $idProduct = $_SESSION['idProduct'];
+        $sqlProduct = mysqli_query($conn, "SELECT * FROM item WHERE ItemID = $idProduct");
+        $Product = mysqli_fetch_assoc($sqlProduct);
+        $arr[0]['name']=$Product['Name'];
+        $arr[0]['img']=$Product['image'];
+        $arr[0]['des']=$Product['Describes'];
+        $arr[0]['price']=$Product['Price'];
+        $arr[0]['quantity']=$amount;
+        // $arr = array('name' => $Product['Name'], 'img' => $Product['image'], 'des' => $Product['Describes'], 'price' => $Product['Price'], 'quantity' => $amount) ;
+        $_SESSION['Product']=$arr;
         header('Location: formInfoCustomer.php');
     }
 ?>

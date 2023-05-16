@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require "/xampp/htdocs/Project_PHP/source_code/data/connectDB.php";
 ?>
 <!doctype html>
 <html lang="en">
@@ -222,7 +223,31 @@
                         <p class="price"><?php echo $totalPrice + 30000 ?> đ</p>
                     </div>
                     <div class="order">
-                        <button type="button" class="btn btn-warning">ĐẶT HÀNG</button>
+                    <form action="index.php" method="post">
+                            <button type="submit" class="btn btn-warning" name="submit">ĐẶT HÀNG</button>
+                        </form>
+
+                        <?php
+                            if(isset($_POST['submit'])){
+                                if(isset($_SESSION['idUser'])){
+                                    $idUser = $_SESSION['idUser'];
+                                    $idProduct = $_SESSION['idProduct'];
+                                    $sql="INSERT INTO orders (UserID,CustomerID,itemID,Date,Status) value ('$idUser',null,'$idProduct',NOW(),'Chua giao')";
+                                    $query=mysqli_query($conn,$sql);
+                                    echo '<script type ="text/JavaScript">';  
+                                    echo 'alert("Cảm ơn bạn đã đặt hàng!! Đơn hàng sẽ được giao đến bạn trong thời gian sớm nhất.")';  
+                                    echo '</script>';
+                                }else{
+                                    $idCustomer= $_SESSION['CustomerID'];
+                                    $idProduct = $_SESSION['idProduct'];
+                                    $sql="INSERT INTO orders (UserID,CustomerID,itemID,Date,Status) value (null,'$idCustomer','$idProduct',NOW(),'Chua giao')";
+                                    $query=mysqli_query($conn,$sql);
+                                    echo '<script type ="text/JavaScript">';  
+                                    echo 'alert("Cảm ơn bạn đã đặt hàng!! Đơn hàng sẽ được giao đến bạn trong thời gian sớm nhất.")';  
+                                    echo '</script>';
+                                }
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
