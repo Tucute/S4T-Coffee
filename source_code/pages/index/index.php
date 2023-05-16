@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-sm-7 pt-3">
                     <div class="searchbox">
-                        <form action="../ThanhTimKiem/index.php" method="post">
+                        <form action="../timkiem/index.php" method="post">
                             <div class="input-group">
                                 <input type="text" class="form-control"  placeholder="Tìm kiếm sản phẩm" name="tukhoa">
                                 <span class="input-group-text">
