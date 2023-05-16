@@ -151,7 +151,7 @@
     </table>
     <?php   
         }else{
-            echo "<h5>Không có đơn hàng nào đang giao</h5>";
+            echo "<h5 style='color:red'>Không có đơn hàng nào đang giao</h5>";
         }
     ?>
         
