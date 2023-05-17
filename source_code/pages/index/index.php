@@ -58,6 +58,7 @@
                         <?php
                         if(isset($_SESSION['idUser'])){
                           $idUser=$_SESSION['idUser'];
+                          
                           $sql="SELECT * FROM user where UserID=".$idUser;
                           $query=mysqli_query($conn,$sql);
                           $rowUser=mysqli_fetch_assoc($query);
@@ -73,6 +74,9 @@
 
                                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li><a class="dropdown-item" href="../../form/logout.php">Logout</a></li>
+                                    <li><a class="dropdown-item" href="../../pages/editProfile/edit.php">Edit profile</a></li>
+                                    <li><a class="dropdown-item" href="../../pages/history/index.php">History</a></li>
+        
                                   </ul>
                             </div>
                           

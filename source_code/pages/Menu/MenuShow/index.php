@@ -76,6 +76,8 @@
 
                                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li><a class="dropdown-item" href="../../form/logout.php">Logout</a></li>
+                                    <li><a class="dropdown-item" href="../../pages/editProfile/edit.php">Edit profile</a></li>
+                                    <li><a class="dropdown-item" href="../../pages/history/index.php">History</a></li>
                                   </ul>
                             </div>
                           
