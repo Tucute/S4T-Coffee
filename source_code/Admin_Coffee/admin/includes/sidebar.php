@@ -44,6 +44,14 @@
                     <span class="nav-link-text ms-1">Quản lý Order</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-white " href="user.php">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">person</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Thông Tin Người Dùng</span>
+                </a>
+            </li>
             <!-- <li class="nav-item">
                 <a class="nav-link text-white " href="../pages/tables.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
