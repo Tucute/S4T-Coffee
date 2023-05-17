@@ -19,31 +19,43 @@
     <!-- place navbar here -->
   </header>
   <main>
-    <form action="" method="post">
-        <div class="mb-3 row">
-            <label for="inputName" class="col-sm-2 col-form-label">Nhập tên của bạn: </label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" placeholder="Tên của bạn">
+    <div class="container">
+        <h1>NHẬP THÔNG TIN</h1>
+        <br>
+        <form action="" method="post">
+            <div class="mb-3 row">
+                <label for="inputName" class="col-sm-2 col-form-label">Nhập tên của bạn: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="name" placeholder="Tên của bạn">
+                </div>
             </div>
-            <label for="inputName" class="col-sm-2 col-form-label">Số điện thoại: </label>
-            <div class="col-sm-10">
-                <input type="number"  class="form-control" name="phone" placeholder="Số điện thoại">
+            <div class="mb-3 row">
+                <label for="inputName" class="col-sm-2 col-form-label">Số điện thoại: </label>
+                <div class="col-sm-10">
+                    <input type="number"  class="form-control" name="phone" placeholder="Số điện thoại">
+                </div>
             </div>
-            <label for="inputName" class="col-sm-2 col-form-label">Nhập tên của bạn: </label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="address" placeholder="Địa chỉ">
+            <div class="mb-3 row">
+                <label for="inputName" class="col-sm-2 col-form-label">Nhập tên của bạn: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="address" placeholder="Địa chỉ">
+                </div>
             </div>
-        </div>
-        <button type="submit" name="btnSubmit" class="btn btn-waring">Xác nhận</button>
-    </form>
+            <button type="submit" name="btnSubmit" class="btn btn-warning">Xác nhận</button>
+        </form>
+    </div>
     <?php
         if (isset($_POST['btnSubmit'])) {
             $name = checkName($_POST['name']);
             $phone = checkPhone($_POST['phone']);
             $address = checkAddress($_POST['address']);
-            $arr = array('name'=> $name, 'phone' => $phone, 'address' => $address );
-            $_SESSION['Infor_Customer'] = $arr;
-            header('Location: index.php');
+            if (!empty($name) && !empty($phone) && !empty($address) ) {
+                $arr = array('name'=> $name, 'phone' => $phone, 'address' => $address );
+                $_SESSION['Infor_Customer'] = $arr;
+                // print_r($arr);
+                header('Location: index.php');
+            }
+           
         } 
     ?>
     <?php

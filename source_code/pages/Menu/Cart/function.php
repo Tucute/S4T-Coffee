@@ -19,5 +19,13 @@
         $n++;
     }
     $_SESSION['Product']=$arr;
+    
+    if (isset($_SESSION['idUser'])) {
+        $idUser = $_SESSION['idUser'];
+        $User = mysqli_query($conn, "SELECT * from User WHERE UserID = $idUser");
+        $rowUser = mysqli_fetch_assoc($User);
+        $arrUser = array('name' => $rowUser['Name'] , 'phone' => $rowUser['Phone'], 'address' => $rowUser['Address']);
+        $_SESSION['Infor_Customer'] = $arrUser;
+    }
     header('Location: ../Payment/index.php');
 ?>
