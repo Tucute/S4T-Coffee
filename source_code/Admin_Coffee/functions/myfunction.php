@@ -21,6 +21,14 @@ function redirect($url, $message)
     header('Location: ' . $url);
     exit;
 } 
+function UserAll() {
+    global $conn;
+    $query = "SELECT * FROM user";
+    $result = mysqli_query($conn, $query);
+    return $result;
+}
 ?>
+
+
 
 
