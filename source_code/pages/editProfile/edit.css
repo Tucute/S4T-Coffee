@@ -1,0 +1,14 @@
+.form {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+}
+
+.edit_Pf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

@@ -57,16 +57,48 @@
                         </ul>
                     </div>
                     <div class="col-sm-3">
-                        <div class="iconloginANDcart">
-                            <div class="icon-login">
-                                <a href="../../../form/login.php">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-person-fill" viewBox="0 0 16 16">
-                                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-                                    </svg>
-                                    <span>Đăng nhập</span>
-                                </a>
-                                
+                    <div class="iconloginANDcart">
+                        <?php
+                        if(isset($_SESSION['idUser'])){
+                          $idUser=$_SESSION['idUser'];
+                          $sql="SELECT * FROM user where UserID=".$idUser;
+                          $query=mysqli_query($conn,$sql);
+                          $rowUser=mysqli_fetch_assoc($query);
+                        ?>
+                          <div class="icon-login">
+                            <div class="dropdown">
+                                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                                  </svg>
+                                  <span><?php echo $rowUser['Name'] ?></span>
+                                  </a>
+
+                                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" href="../../form/logout.php">Logout</a></li>
+                                  </ul>
                             </div>
+                          
+                            
+                        </div>
+
+                        
+                        <?php
+                        }else{
+                        ?>
+                          <div class="icon-login">
+                            <a href="../../form/login.php">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                                </svg>
+                                <span>Đăng nhập</span>
+                            </a>
+                            
+                        </div>
+                        <?php
+                        }
+                        ?>
+                       
                             <div class="icon-cart">
                                 <a href="index.php">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-cart4" viewBox="0 0 16 16">
