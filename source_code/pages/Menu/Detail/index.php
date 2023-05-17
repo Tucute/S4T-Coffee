@@ -4,7 +4,6 @@
 ?>
 <!doctype html>
 <html lang="en">
-
 <head>
   <title>Product</title>
   <!-- Required meta tags -->
