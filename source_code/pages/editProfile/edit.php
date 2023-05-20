@@ -32,35 +32,31 @@ $rowUser=mysqli_fetch_assoc($query);
        
         <div class="edit_Pf">
         <a href="../../pages/index/index.php"><ion-icon name="close-circle-outline" style="width: 50px;height: 50px;"></ion-icon></a>
-
             <div class="form">
+                <h1>Edit Profile</h1>
+
                 <form action="" method="post" enctype="multipart/form-data">
-                <label for="fullName">Full Name:</label> <br>
+                <label for="fullName" class="lab">Full Name:</label> <br>
                 <input type="text" name="fullName" id="fullName" value="<?php echo $rowUser['Name']?>" placeholder="enter your name" required> <br> <br>
 
-                
-
                 <form action="" method="post" enctype="multipart/form-data">
-                <label for="Phone">Phone:</label> <br>
+                <label for="Phone" class="lab">Phone:</label> <br>
                 <input type="text" name="Phone" id="Phone" value="<?php echo $rowUser['Phone']?>" placeholder="enter User Phone number" required> <br> <br>
 
                 <form action="" method="post" enctype="multipart/form-data">
-                <label for="Address">Address:</label> <br>
+                <label for="Address" class="lab">Address:</label> <br>
                 <input type="text" name="Address" id="Address" value="<?php echo $rowUser['Address']?>" placeholder="enter User Name" required> <br> <br>
 
-
-                <label for="image">Image:</label> <br>
+                <label for="image" class="lab">Image:</label> <br>
                 <input type="file" name="image" id="image" accept="image/*" required> <br> <br>
 
-                <input type="submit" value="Chỉnh sửa" name="submit">
+                <button type="submit" value="Edit" name="submit" class="submit">Edit</button>
             </form>
             </div>
         </div>
       
         
         <?php
-       
-
        
 
         // Lấy dữ liệu từ biểu mẫu

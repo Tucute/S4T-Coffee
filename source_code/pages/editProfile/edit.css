@@ -1,9 +1,21 @@
+
 .form {
-    width: 400px;
+    /* width: 400px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 0.4em;
+    background-color: #535c68;
+    border-radius: 25px;
+    transition: 0.4s ease-in-out;
+    width: 20%;
+    height: 45%;
 }
 
 .edit_Pf{
@@ -11,4 +23,20 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.form h1 {
+    text-align: center;
+    color: #cd84f1;
+}
+
+.lab {
+    font-size: 20px;
+    color: #ffff;
+}
+
+.submit {
+    cursor: pointer;
+    border-radius: 15%;
+    background-color: #27ae60;
 }

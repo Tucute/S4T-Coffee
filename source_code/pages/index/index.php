@@ -20,6 +20,7 @@
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="../header_footer/style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -55,7 +56,9 @@
                         <li><a href="#"> Về chúng tôi</a></li>
                         <li><a href="#"> Liên hệ</a></li>
                     </ul>
+                    
                 </div>
+             
                 <div class="col-sm-3">
                 <div class="iconloginANDcart">
                         <?php
@@ -115,6 +118,14 @@
             </div>
         </nav>
     </div>
+    <div id="time">
+    <form id="all">
+      <div id="test">
+        loading
+      </div>
+      <div id="ttt"></div>
+    </form>
+  </div>
   </header>
   <main>
     <section class="banner-home">

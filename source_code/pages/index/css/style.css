@@ -218,3 +218,48 @@ a {
     flex: 0 0 calc(100% - 30px);
 }
 
+
+/* time */
+#time {
+    width: 12%;
+    background-color: black;
+    border-radius: 20px;
+    text-align: right;
+    position: fixed;
+    top: 30px;
+    left: 10px;
+}
+
+#test {
+    text-align: center;
+    font-family: serif;
+    color: lightskyblue;
+    letter-spacing: 2px;
+    font-size: 20px;
+    text-shadow: 5px 3px 25px #000CFF;
+    padding: 5px;
+    border: 2px lightskyblue;
+    border-radius: 30px;
+}
+
+#b1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+#ttt {
+    color: lightskyblue;
+    text-align: center;
+    text-shadow: 10px 13px 30px #00FFF3;
+    padding: 5px;
+    border: 2px #000CFF;
+    font-family: serif;
+    border-radius: 30px;
+}
+    
+#all {
+    padding: 5px;
+    border: 5px solid #0093FF;
+    font-family: serif;
+    border-radius: 20px;
+}
