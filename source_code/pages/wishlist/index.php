@@ -44,7 +44,7 @@ session_start();
             <td><?php echo $row['Name']?></td>
             <td><?php echo $row['Price']?></td>
             <td>
-                <a href="giohang.php?id=<?php echo $row['ItemID']?>">Thêm vào giỏ hàng</a>||
+                <a href="../Menu/Detail/function.php?amount=1 & id=<?php echo $row['ItemID']?>">Thêm vào giỏ hàng</a>||
                 <a href="xoaWishList.php?id=<?php echo $row['ItemID']?>">Bỏ yêu thích </a>
             </td>
         </tr>

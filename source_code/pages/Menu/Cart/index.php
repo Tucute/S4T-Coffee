@@ -58,7 +58,7 @@
                     </div>
                     <div class="col-sm-3">
                     <div class="iconloginANDcart">
-                        <?php
+                    <?php
                         if(isset($_SESSION['idUser'])){
                           $idUser=$_SESSION['idUser'];
                           $sql="SELECT * FROM user where UserID=".$idUser;
@@ -75,7 +75,10 @@
                                   </a>
 
                                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item" href="../../form/logout.php">Logout</a></li>
+                                    <li><a class="dropdown-item" href="../../../form/logout.php">Logout</a></li>
+                                    <li><a class="dropdown-item" href="../../editProfile/edit.php">Edit profile</a></li>
+                                    <li><a class="dropdown-item" href="../../history/index.php">History</a></li>
+                                    <li><a class="dropdown-item" href="../../wishlist/index.php">Mục yêu thích</a></li>
                                   </ul>
                             </div>
                           
@@ -87,7 +90,7 @@
                         }else{
                         ?>
                           <div class="icon-login">
-                            <a href="../../form/login.php">
+                            <a href="../../../form/login.php">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-person-fill" viewBox="0 0 16 16">
                                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                                 </svg>
@@ -133,7 +136,7 @@
                         <div class="product">
                             <div class="cart-option">
                                 <div class="cart-title">
-                                    <p>Cà phê thế hệ mới</p>
+                                    <p>Chi tiết sản phẩm</p>
                                 </div>
                             </div>
                             <hr>

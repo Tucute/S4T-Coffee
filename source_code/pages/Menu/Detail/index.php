@@ -76,9 +76,10 @@
                                   </a>
 
                                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item" href="../../form/logout.php">Logout</a></li>
-                                    <li><a class="dropdown-item" href="../../pages/editProfile/edit.php">Edit profile</a></li>
-                                    <li><a class="dropdown-item" href="../../pages/history/index.php">History</a></li>
+                                    <li><a class="dropdown-item" href="../../../form/logout.php">Logout</a></li>
+                                    <li><a class="dropdown-item" href="../../editProfile/edit.php">Edit profile</a></li>
+                                    <li><a class="dropdown-item" href="../../history/index.php">History</a></li>
+                                    <li><a class="dropdown-item" href="../../wishlist/index.php">Mục yêu thích</a></li>
                                   </ul>
                             </div>
                           
@@ -171,6 +172,34 @@
                                     </svg>
                                 </button>  
                             </div> 
+                            <br>
+                            <br>
+                        
+                            <div>
+                                <label for=""> THêm vào yêu thích: </label>
+                                <button type="submit" name="btn-like">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                            </svg>
+                        </button>
+                        <?php
+                            if(isset($_POST['btn-like'])) {
+                                if (isset($_SESSION['idUser'])) {
+                                    $idUser = $_SESSION['idUser'] ;
+                                    $idProduct = $_SESSION['idProduct'];
+                                    $result = mysqli_query($conn, "SELECT ItemID FROM wishlist WHERE UserID = $idUser");
+                                    $tmp = mysqli_fetch_assoc($result);
+                                    $idPr = $tmp['ItemID'];
+                                    if ($idPr != $idProduct) {
+                                        $sql = mysqli_query($conn, "INSERT INTO wishlist (ItemID, UserID) VALUES ($idProduct, $idUser)" )   ;
+                                        echo "<script> alert ('Đã thêm vào danh sách yêu thích !') </script>" ;
+                                    }
+                                }
+                                
+                               
+                            }
+                        ?>
+                            </div>
                         </form> 
                     </div>                   
                     <div class="btn-buy">

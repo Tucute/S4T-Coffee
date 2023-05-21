@@ -22,76 +22,85 @@ require "/xampp/htdocs/Project_PHP/source_code/data/connectDB.php";
     <!-- place navbar here -->
   </header>
   <main>
-    <form action="" method="post">
-        <div class="mb-3 row">
-            <label for="inputName" class="col-sm-2 col-form-label">Nhập tên của bạn: </label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" placeholder="Tên của bạn">
+    <div class="container">
+        <br>
+        <h1>Nhập thông tin đầy đủ để mua hàng</h1>
+        <br>
+        <form action="" method="post">
+            <div class="mb-3 row">
+                <label for="inputName" class="col-sm-2 col-form-label">Nhập tên của bạn: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="name" placeholder="Tên của bạn">
+                </div>
+                <br>
+                <br>
+                <label for="inputName" class="col-sm-2 col-form-label">Số điện thoại: </label>
+                <div class="col-sm-10">
+                    <input type="number"  class="form-control" name="phone" placeholder="Số điện thoại">
+                </div>
+                <br>
+                <br>
+                <label for="inputName" class="col-sm-2 col-form-label">Nhập tên của bạn: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="address" placeholder="Địa chỉ">
+                </div>
+                <br>
+                <br>
             </div>
-            <label for="inputName" class="col-sm-2 col-form-label">Số điện thoại: </label>
-            <div class="col-sm-10">
-                <input type="number"  class="form-control" name="phone" placeholder="Số điện thoại">
-            </div>
-            <label for="inputName" class="col-sm-2 col-form-label">Nhập tên của bạn: </label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="address" placeholder="Địa chỉ">
-            </div>
-        </div>
-        <button type="submit" name="btnSubmit" class="btn btn-waring">Xác nhận</button>
-    </form>
-    <?php
-        if (isset($_POST['btnSubmit'])) {
-            $name = checkName($_POST['name']);
-            $phone = checkPhone($_POST['phone']);
-            $address = checkAddress($_POST['address']);
-            $arr = array('name'=> $name, 'phone' => $phone, 'address' => $address );
+            <button type="submit" name="btnSubmit" class="btn btn-warning">Xác nhận</button>
+            <br>
+            <br>
+        </form>
+        <?php
+            if (isset($_POST['btnSubmit'])) {
+                $name = checkName($_POST['name']);
+                $phone = checkPhone($_POST['phone']);
+                $address = checkAddress($_POST['address']);
+                $arr = array('name'=> $name, 'phone' => $phone, 'address' => $address );
 
-            $sql="INSERT INTO customer (Name,Phone,Address) values ('$name','$phone','$address')";
-            $query=mysqli_query($conn, $sql);
-
-            $sql="SELECT COUNT(*)as count FROM customer";
-            $query=mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($query);
-            $_SESSION['CustomerID']=$row['count'];
-
-            $_SESSION['Infor_Customer'] = $arr;
-            header('Location: index.php');
-        } 
-    ?>
-    <?php
-        function checkName($name){
-            if (empty($name)) {
-                echo "\n <span style='color:red;'>Error: Họ tên bắt buộc phải nhập.</span>";
-                echo "<br>";
-            } else {
-                $Cus_name = $name;
-                if(!preg_match("/^[a-zA-Z ]*$/",$Cus_name)) {
-                    echo "<span style='color:red;'>Error: Họ tên chỉ chấp nhận chữ và khoảng trắng.</span>";
+                if (!empty($name) && !empty($phone) && !empty($address)) {
+                    $sql="INSERT INTO customer (Name,Phone,Address) values ('$name','$phone','$address')";
+                    $query=mysqli_query($conn, $sql);
+                    $_SESSION['Infor_Customer'] = $arr;
+                    header('Location: index.php');
+                }
+            } 
+        ?>
+        <?php
+            function checkName($name){
+                if (empty($name)) {
+                    echo "\n <span style='color:red;'>Error: Họ tên bắt buộc phải nhập.</span>";
                     echo "<br>";
                 } else {
-                    return $Cus_name;
+                    $Cus_name = $name;
+                    if(!preg_match("/^[a-zA-Z ]*$/",$Cus_name)) {
+                        echo "<span style='color:red;'>Error: Họ tên chỉ chấp nhận chữ và khoảng trắng.</span>";
+                        echo "<br>";
+                    } else {
+                        return $Cus_name;
+                    }
                 }
             }
-        }
-        function checkPhone($phone) {
-            if(empty($phone)) {
-                echo "<span style='color:red;'>Error: Số bắt buộc phải nhập.</span>";
-                echo "<br>";
+            function checkPhone($phone) {
+                if(empty($phone)) {
+                    echo "<span style='color:red;'>Error: Số bắt buộc phải nhập.</span>";
+                    echo "<br>";
+                }
+                else {
+                    return $phone;
+                }
             }
-            else {
-                return $phone;
+            function checkAddress($address) {
+                if(empty($address)) {
+                    echo "<span style='color:red;'>Error: Địa chỉ bắt buộc phải nhập.</span>";
+                    echo "<br>";
+                }
+                else {
+                    return $address;
+                }
             }
-        }
-        function checkAddress($address) {
-            if(empty($address)) {
-                echo "<span style='color:red;'>Error: Địa chỉ bắt buộc phải nhập.</span>";
-                echo "<br>";
-            }
-            else {
-                return $address;
-            }
-        }
-    ?>
+        ?>
+    </div>
   </main>
   <footer>
     <!-- place footer here -->
