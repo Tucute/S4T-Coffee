@@ -2,6 +2,10 @@
     require "/xampp/htdocs/Project_PHP/source_code/data/connectDB.php";
     session_start();
 
+    if(isset($_SESSION['idProduct'])){
+        unset($_SESSION['idProduct']);
+    }
+
     $idUser = $_SESSION['idUser'];
     $sqlUser = mysqli_query($conn, "SELECT*FROM item WHERE ItemID in (SELECT ItemID FROM cart where UserID = $idUser)");
     $arr = array();
@@ -19,5 +23,11 @@
         $n++;
     }
     $_SESSION['Product']=$arr;
+
+    $User = mysqli_query($conn, "SELECT * from User WHERE UserID = $idUser");
+    $rowUser = mysqli_fetch_assoc($User);
+    $arrUser = array('name' => $rowUser['Name'] , 'phone' => $rowUser['Phone'], 'address' => $rowUser['Address']);
+    $_SESSION['Infor_Customer'] = $arrUser;
+
     header('Location: ../Payment/index.php');
 ?>

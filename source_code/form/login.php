@@ -88,7 +88,7 @@
                 $name=$_POST['name'];
                 $pass=$_POST['pass'];
                 if ($name == "admin" && $pass="123456") {
-                    header("Location: http://localhost/Project_PHP/source_code/Admin_Coffee/index.php");
+                    header("Location: ../Admin_Coffee/index.php");
                 }
                 else {
                     $sql=mysqli_query($conn, "SELECT*FROM user WHERE Username = '$name' AND Password = '$pass'");
@@ -101,7 +101,7 @@
                         }
                         else{
                             echo "<script> alert('Dăng nhập thành công !') </script>";
-                            header("Location: http://localhost/Project_PHP/source_code/pages/index/");
+                            header("Location: ..//pages/index/index.php");
                         }
                     }
                     else {

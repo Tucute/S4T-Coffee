@@ -5,6 +5,9 @@
 <?php 
     if (isset($_SESSION['idUser'])) {
         $idUser = $_SESSION['idUser'];
+        if (isset($_GET['id'])) {
+            $_SESSION['idProduct'] = $_GET['id'];
+        }
         $idProduct = $_SESSION['idProduct'];
         $amount = $_GET['amount'];
         echo $amount;

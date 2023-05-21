@@ -76,9 +76,10 @@
                                   </a>
 
                                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item" href="../../form/logout.php">Logout</a></li>
-                                    <li><a class="dropdown-item" href="../../pages/editProfile/edit.php">Edit profile</a></li>
-                                    <li><a class="dropdown-item" href="../../pages/history/index.php">History</a></li>
+                                    <li><a class="dropdown-item" href="../../../form/logout.php">Logout</a></li>
+                                    <li><a class="dropdown-item" href="../../editProfile/edit.php">Edit profile</a></li>
+                                    <li><a class="dropdown-item" href="../../history/index.php">History</a></li>
+                                    <li><a class="dropdown-item" href="../../wishlist/index.php">Mục yêu thích</a></li>
                                   </ul>
                             </div>
                           
@@ -161,7 +162,7 @@
                                     </div>
                                 </div>
                                 <p>GH tiêu chuẩn</p>
-                                <p>Nhận vào: 20-19 tháng 4</p>
+                                <p>Nhận vào: 23-22 tháng 5</p>
                             </div>
                         </div>
                         <?php
@@ -234,20 +235,30 @@
                                     <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
                                 </svg>
                             </span>
-                            <span class="text">Sử dụng thẻ tín dụng</span>
+                            <span class="text">Thanh toán bằng MOMO</span>
                             <span class="option-card">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                 </svg>
                             </span>
                         </div>
-                        <div class="cart-bottom">
+                        <!-- <div class="cart-bottom">
                             <p>Chọn để thêm thẻ</p>
+                        </div> -->
+                        <div class="cart-bottom">
+                            <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="../Payment-momo/xulythanhtoanmomo.php">
+                                <input type="submit" name="momo" value="MOMO QRcode" class="btn btn-primary">
+
+                            </form>
+                        
+                            <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="../Payment-momo/xulythanhtoanmomo-atm.php">
+                                <input type="submit" name="momo" value="MOMO ATM" class="btn btn-primary">
+                            </form>
                         </div>
                     </div>
                     <p>Thông tin đơn hàng </p>
                     <div class="price-origin">
-                        <p class="text">Tạm tính (1 sản phẩm)</p>
+                        <p class="text">Tạm tính</p>
                         <p class="price"><?php echo $totalPrice ?> đ</p>
                     </div>
                     <div class="price-origin">
@@ -258,6 +269,7 @@
                     <div class="price-origin">
                         <p class="text">Tổng cộng:</p>
                         <p class="price"><?php echo $totalPrice + 30000 ?> đ</p>
+                        <?php $_SESSION['Amount'] = $totalPrice + 30000 ?>
                     </div>
                     <div class="order">
                     <form action="index.php" method="post">
@@ -266,24 +278,54 @@
 
                         <?php
                             if(isset($_POST['submit'])){
+                                $amount = $_SESSION['Amount'];
                                 if(isset($_SESSION['idUser'])){
-                                    $idUser = $_SESSION['idUser'];
+                                    if (isset($_SESSION['idProduct'])) {
+                                        $idProduct = $_SESSION['idProduct'];
+                                        $idUser = $_SESSION['idUser'];
+                                        $sql="INSERT INTO orders (UserID,itemID,Date,payType, TotalPrice, Status) value ('$idUser','$idProduct',NOW(),'Tiền mặt',$amount,'Chưa thanh toán')";
+                                        $query=mysqli_query($conn,$sql);
+                                        echo '<script type ="text/JavaScript">';  
+                                        echo 'alert("Cảm ơn bạn đã đặt hàng! Đơn hàng sẽ được giao đến bạn trong thời gian sớm nhất.")';  
+                                        echo '</script>';
+                                    }
+                                    else {
+                                        $idUser = $_SESSION['idUser'];
+                                        $sqlCartOrder = "SELECT COUNT(CartID) AS NumberOfCarts FROM cartorder" ;
+                                        $queryCartOrder = mysqli_query($conn,$sqlCartOrder );
+                                        $data = mysqli_fetch_assoc($queryCartOrder);
+                                        $dem = $data['NumberOfCarts'];
+
+                                        $sqlCart = "SELECT * FROM cart WHERE UserID = $idUser" ;
+                                        $queryCart = mysqli_query($conn,$sqlCart);
+                                        
+                                        while ($rowCart = mysqli_fetch_assoc($queryCart)) {
+                                            $idProductCart = $rowCart['ItemID'];
+                                            $Quantity =  $rowCart['Quantity'];
+                                            $insertCart=mysqli_query($conn,"INSERT INTO cartorder (CartID,UserID,ItemID,Quantity) value ($dem, $idUser,$idProductCart,$Quantity)");
+                                        } 
+                                        
+                                        $sql="INSERT INTO orders (UserID,itemID,CartID,Date,payType, TotalPrice, Status) value ('$idUser',null,$dem,NOW(),'Tiền mặt',$amount,'Chưa thanh toán')";
+                                        $query=mysqli_query($conn,$sql);
+
+                                        echo '<script type ="text/JavaScript">';  
+                                        echo 'alert("Cảm ơn bạn đã đặt hàng! Đơn hàng sẽ được giao đến bạn trong thời gian sớm nhất.")';  
+                                        echo '</script>';
+                                    }
+                                }
+                                else{
                                     $idProduct = $_SESSION['idProduct'];
-                                    $sql="INSERT INTO orders (UserID,CustomerID,itemID,Date,Status) value ('$idUser',null,'$idProduct',NOW(),'Chua giao')";
-                                    $query=mysqli_query($conn,$sql);
-                                    echo '<script type ="text/JavaScript">';  
-                                    echo 'alert("Cảm ơn bạn đã đặt hàng!! Đơn hàng sẽ được giao đến bạn trong thời gian sớm nhất.")';  
-                                    echo '</script>';
-                                }else{
-                                    $idCustomer= $_SESSION['CustomerID'];
-                                    $idProduct = $_SESSION['idProduct'];
-                                    $sql="INSERT INTO orders (UserID,CustomerID,itemID,Date,Status) value (null,'$idCustomer','$idProduct',NOW(),'Chua giao')";
+                                    $sql="SELECT * from customer order by CustomerID DESC LIMIT 1";
+                                    $query=mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($query);
+                                    $CustomerID=$row['CustomerID'];
+                                    $sql="INSERT INTO orders (CustomerID,itemID,Date,payType, TotalPrice,Status) value ($CustomerID,'$idProduct',NOW(),'Tiền mặt',$amount,'Chưa thanh toán')";
                                     $query=mysqli_query($conn,$sql);
                                     echo '<script type ="text/JavaScript">';  
                                     echo 'alert("Cảm ơn bạn đã đặt hàng!! Đơn hàng sẽ được giao đến bạn trong thời gian sớm nhất.")';  
                                     echo '</script>';
                                 }
-                            }
+                            }                                
                         ?>
                     </div>
                 </div>

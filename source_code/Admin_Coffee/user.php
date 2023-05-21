@@ -16,7 +16,7 @@
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Address</th>
-                                <th>Avatar</th>
+                                
                                 <th>Username</th>
                                 <th>Password</th>
                                 <th>Action</th>
@@ -34,9 +34,7 @@
                                         <td><?= $user['Name'];?></td>
                                         <td><?= $user['Phone'];?></td>
                                         <td><?= $user['Address'];?></td>
-                                        <td>
-                                            <img src="./admin/image/<?php echo $user['Avatar'] ?>" width="50px" height="50px" alt="">
-                                        </td>
+                                       
                                         <td><?= $user['Username'];?></td>
                                         <td><?= $user['Password'];?></td>
 

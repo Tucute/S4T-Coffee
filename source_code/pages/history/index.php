@@ -129,36 +129,39 @@
 				<tbody>
 					<?php 
                 if(isset($_SESSION['idUser'])){
-        
-                  $servername = "localhost";
-                  $username = "root";
-                  $password = "";
-                  $db= "web_coffee";
-                  $conn = mysqli_connect($servername, $username, $password, $db);
 					        $idUser=$_SESSION['idUser'];
-					        $sql="SELECT * FROM orders where UserID=".$idUser;
-					        $query = mysqli_query($conn,$sql);
-					        while($row=mysqli_fetch_assoc($query)){
+                  $sqlHis =mysqli_query ($conn, "SELECT * FROM orders WHERE UserID = $idUser");
+                  while ($rowOrder = mysqli_fetch_assoc($sqlHis)) {
+
+                    $idOrder = $rowOrder['OrderID'];
+                    $Date = $rowOrder['Date'];
+                    $Status = $rowOrder['Status'];
+                    if ($rowOrder['ItemID'] == null) {
+                      
+                      $idUser=$rowOrder['UserID'];
+                      $sql="SELECT*FROM item WHERE ItemID in (SELECT ItemID FROM cartorder where CartID in (SELECT CartID FROM orders WHERE UserID = $idUser AND OrderID = $idOrder) group by CartID)";
+                      $KQ3=mysqli_query($conn,$sql);
+                    }
+                    else {
+                        $sql="SELECT * FROM item where ItemID=".$rowOrder['ItemID'];
+                        $KQ3=mysqli_query($conn,$sql);
+                        ;
+                    } 
+                    while ($row = mysqli_fetch_assoc($KQ3)) {
+                      ?>
+                        <tr>
+                          <td class="text-center"><?php echo $idOrder ?></td>
+                          <td class="text-center"><?php echo $row['Name']?></td>
+                          <td class=""><img src="../../img_WebCoffee/<?php echo $row['image'] ?>" width="50px" height="50px" alt=""></td>
+                          <td class=""><?php echo $Date ?></td>
+                          <td class=""><?php echo $Status ?></td>
+                        </tr>
+                      <?php
+                    } 
+
+                  }
+                }
 					?>
-					<tr>
-						
-                  <td class="text-center"><?php echo $row['OrderID'] ?></td>
-                  <?php
-                    $sql="SELECT * FROM item where ItemID=".$row['ItemID'];
-                    $query2=mysqli_query($conn,$sql);
-                    $rowItem=mysqli_fetch_assoc($query2);
-                  ?>
-                  <td class="text-center"><?php echo $rowItem['Name']?></td>
-                  <td class=""><img src="../../img_WebCoffee/<?php echo $rowItem['image'] ?>" width="50px" height="50px" alt=""></td>
-                  <td class=""><?php echo $row['Date'] ?></td>
-                  <td class=""><?php echo $row['Status'] ?></td>
-
-
-						
-						
-		                    
-					</tr>
-          <?php }} ?>
 					
 				</tbody>
 				
